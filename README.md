@@ -8,6 +8,7 @@
 Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories, fill missing values using **sklearn** `KNNImputer`, `LinearRegression`
 
 
+---
 
 ## Table of contents
 
@@ -17,25 +18,36 @@ Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories,
 - [Data Exploration](#data-exploration)
 - [Data Cleanup](#data-cleanup)
 - [Fill Missing Values](#fill-missing-values)
-- [Fill Missing Values](#fill-missing-values)
-- [Technologies](#technologies)
-- [Next steps](#next-steps)
+- [Data Manipulation](#data-manipulation)
+- [Save File](#save-file)
+- [Training & Testing columns](#training-&-testing-column-selection)
+- [Split Data](#split-data-for-training-&-testing)
+- [Fit & Predict using ML model(s)](#fit-&-predict-using-ml-model(s))
+- [Bonus](#bonus:-conformal-prediction)
 
-
+---
 
 ### Overview
+[(Back to top)](#table-of-contents)
+
 
 This real estate data preprocessing project aims to develop a clean, reliable, and comprehensive dataset for the purpose of further analysis and modeling. By conducting data exploration, cleanup, and filling in missing values using machine learning, we will create a solid foundation for future research, enabling more informed decision-making and insight generation.
 
+---
 
 ### Data Files
+[(Back to top)](#table-of-contents)
+
 
 - Original data csv [file](https://drive.google.com/file/d/1ckj3ofIrAqxJS1wx9PNWnTBd1GJIxRV6/view?usp=share_link)
 
 - For reference, here's the final cleaned-up [dataframe](https://drive.google.com/file/d/1qvusfqukCXLLppfAsH_xaFXE9cyWkZuY/view?usp=share_link)
 
+---
 
 ### Python Libraries
+[(Back to top)](#table-of-contents)
+
 
 ```python
 # Import required libraries
@@ -55,10 +67,11 @@ print(watermark(iversions=True, globals_=globals()))
 
 ![import_libraries_output](Images/output/output_import_libraries.png)
 
-
-
+---
 
 ### Data Exploration
+[(Back to top)](#table-of-contents)
+
 
 - Download datafile from the link above
 - Read csv data file via pandas `read_csv` function
@@ -89,16 +102,12 @@ display(data_df.tail(5))
 ![Display head & tail](Images/output/output_head_tail.png)
 
 
----
-
 #### Convert `price` to 2 decimal places
 
 ```python
 # Round `price` to 2 decimals
 data_df["price"] = data_df["price"].round(2)
 ```
-
----
 
 #### Get dataframe info
 
@@ -112,8 +121,6 @@ data_df.info()
 
 ![Display dataframe info](Images/output/output_info.png)
 
-
----
 
 
 #### Get dataframe shape
@@ -129,8 +136,6 @@ data_df.shape
 ![Display dataframe shape](Images/output/output_shape.png)
 
 
----
-
 
 #### Display `status` values for available properties
 
@@ -144,8 +149,6 @@ data_df["status"].unique()
 
 ![Display unique status](Images/output/output_status.png)
 
----
-
 
 #### Drop `ready_to_build` status value from analysis. Only keep `for_sale` status values.
 
@@ -157,7 +160,6 @@ data_df = data_df[data_df["status"] != "ready_to_build"]
 data_df["status"].unique()
 ```
 
----
 
 
 #### Count number of `NaN` values for each column for `for_sale` status
@@ -175,7 +177,6 @@ display(nan_counts)
 
 ![Display NaN values for each column](Images/output/output_nan_values.png)
 
----
 
 #### Display `for_sale` properties in all available locations
 
@@ -195,6 +196,8 @@ display(data_df.groupby("state")["status"].size())
 
 
 ### Data Cleanup
+[(Back to top)](#table-of-contents)
+
 
 #### Drop specific locations for analysis - U.S. territories, U.S mainland states with lower than 100 counts available
 
@@ -224,7 +227,6 @@ display(state_counts)
 
 ![Drop low count states & territories](Images/output/output_dropped_states.png)
 
----
 
 #### Find number of `rows` & `columns` for the states selected dataframe
 
@@ -291,6 +293,8 @@ display(nan_counts)
 
 
 ### Fill Missing Values
+[(Back to top)](#table-of-contents)
+
 
 #### Fill missing `zip_code` values
 
@@ -324,8 +328,6 @@ display(nan_counts)
 ![Fill missing zip](Images/output/output_fill_zipcode.png)
 
 
----
-
 #### Fill missing `city` values using `zip_code`
 
 ```python
@@ -350,8 +352,6 @@ display(nan_counts)
 #### Output:
 
 ![Fill missing city](Images/output/output_fill_city.png)
-
----
 
 
 #### Fill missing `house_size` using `zip_code` & `price` as features for the Regression model
@@ -389,8 +389,6 @@ display(nan_counts)
 ![Fill missing house size](Images/output/output_fill_house_size.png)
 
 
----
-
 
 #### Fill missing `acre_lot` using `zip_code`, `price` & `house_size` as features for the Regression model
 
@@ -426,8 +424,6 @@ display(nan_counts)
 ![Fill missing acre lot](Images/output/output_fill_acre_lot.png)
 
 
----
-
 
 #### Fill missing `bed` using `zip_code`, `price`, `house_size` & `acre_lot` as features for the Regression model
 
@@ -461,8 +457,6 @@ display(nan_counts)
 
 ![Fill missing bed](Images/output/output_fill_bed.png)
 
-
----
 
 
 #### Fill missing `bath` using `zip_code`, `price`, `house_size`, `acre_lot` & `bed` as features for the Regression model
@@ -499,8 +493,6 @@ display(nan_counts)
 ![Fill missing bath](Images/output/output_fill_bath.png)
 
 
----
-
 
 #### Fill missing `street` values by extracting values from `full_address`
 
@@ -533,9 +525,9 @@ display(nan_counts)
 ---
 
 
-
-
 ### Data manipulation
+[(Back to top)](#table-of-contents)
+
 
 #### Round `bed` values to `integer`
 
@@ -585,9 +577,6 @@ display(sorted_state_df.info())
 ![Data manipulation](Images/output/output_data_manipulation.png)
 
 
----
-
-
 #### Convert all negative `acre_lot` values to 'Unavailable'
 
 ```python
@@ -602,9 +591,6 @@ print(f"There are {unavailable_count} rows where `acre_lot` is 'Unavailable'.")
 #### Output:
 
 ![Missing acre lot](Images/output/output_unavailable_acre_lot.png)
-
-
----
 
 
 
@@ -627,9 +613,6 @@ print(f"There are {unavailable_count} rows where `sold_date` is 'Unavailable'.")
 ![Missing sold date](Images/output/output_unavailable_sold_date.png)
 
 
----
-
-
 
 #### Display all NaN counts
 
@@ -645,9 +628,6 @@ display(nan_counts)
 #### Output:
 
 ![Display final NaN values](Images/output/output_final_nan_counts.png)
-
-
----
 
 
 #### Add a new column to `price_sq_ft` that shows a ratio of `price` / `house_size`
@@ -686,6 +666,8 @@ display(sorted_state_df.shape)
 
 
 ### Save file
+[(Back to top)](#table-of-contents)
+
 
 
 ```python
@@ -696,7 +678,9 @@ sorted_state_df.to_csv('sorted_state_df.csv', index=False)
 ---
 
 
-### Training & Testing split
+### Training & Testing column selection
+[(Back to top)](#table-of-contents)
+
 
 #### Create `X` & `y` columns for further training & testing
 
@@ -723,7 +707,9 @@ display(y.head())
 ---
 
 
-### Split data for training & testing via **sklearn** package
+### Split data for training & testing
+[(Back to top)](#table-of-contents)
+
 
 ```python
 # Import sklearn train_test_split library
@@ -737,7 +723,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 
 
-### Fit Machine Learning model(s)
+### Fit & Predict using ML model(s)
+[(Back to top)](#table-of-contents)
+
 
 - Pick 5 regression models: `XGBoost`, `Linear Regression`, `Decision Tree`, `Random Forest`, and `Gradient Boosting`.
 
@@ -817,6 +805,8 @@ print(f"The R^2 score of the second best model is {r2:.2f}, and the MAE score is
 
 
 ### Bonus: Conformal prediction
+[(Back to top)](#table-of-contents)
+
 
 - Define a function to calculate the prediction intervals using the conformal prediction algorithm - `XGBoost`
 
