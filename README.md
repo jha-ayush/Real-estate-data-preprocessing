@@ -4,8 +4,22 @@
   title="Real Estate price predictor"
   style="display: inline-block; margin: 0 auto; max-width: 60px">
 
-# Real-estate data preprocessing in Jupyterlab
-Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories, fill missing values using **sklearn** `KNNImputer`, `LinearRegression`
+# Executive summary
+
+Real-estate-data-preprocessing is a data preprocessing and analysis project aimed at preparing and understanding real estate data for further usage, such as predictive modeling and decision-making. The project focuses on cleaning, transforming, and analyzing the dataset to derive meaningful insights.
+
+**Key Features**
+
+- *Data Cleaning*: The project involves the removal of unnecessary columns, handling missing values, and fixing data inconsistencies to ensure the data is reliable for analysis.
+
+- *Data Transformation*: This step includes normalizing and scaling the dataset to ensure all variables are on the same scale for better comparison and analysis.
+
+- *Feature Engineering*: The project highlights the creation of new features from existing data to enhance the dataset and improve the predictive capabilities of potential machine learning models.
+
+- *Exploratory Data Analysis (EDA)*: The project provides an in-depth analysis of the dataset, uncovering trends, patterns, and relationships between variables, which can help make informed decisions in the real estate market.
+
+
+In conclusion, the Real-estate-data-preprocessing project provides a comprehensive framework for data preprocessing and analyzing real estate data, setting the foundation for future predictive models and decision-making in the real estate industry.
 
 
 ---
