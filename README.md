@@ -23,7 +23,7 @@ Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories,
 - [Training & Testing columns](#training-&-testing-column-selection)
 - [Split Data](#split-data-for-training-&-testing)
 - [Fit & Predict using ML model(s)](#fit-&-predict-using-ml-model(s))
-- [Bonus](#bonus:-conformal-prediction)
+- [Bonus](#conformal-prediction)
 
 ---
 
@@ -806,7 +806,7 @@ print(f"The R^2 score of the second best model is {r2:.2f}, and the MAE score is
 
 
 
-### Bonus: Conformal prediction
+### Conformal prediction
 [(Back to top)](#table-of-contents)
 
 
