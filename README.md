@@ -5,7 +5,7 @@
   style="display: inline-block; margin: 0 auto; max-width: 60px">
 
 # Real-estate data preprocessing in Jupyterlab
-Data preprossing in `Jupyterlab` - cleanup low house counts, U.S. territories, fill missing values using **sklearn** `KNNImputer`, `LinearRegression`
+Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories, fill missing values using **sklearn** `KNNImputer`, `LinearRegression`
 
 
 
