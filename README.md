@@ -33,6 +33,8 @@ Data preprocessing in `Jupyterlab` - cleanup low house counts, U.S. territories,
 
 This real estate data preprocessing project aims to develop a clean, reliable, and comprehensive dataset for the purpose of further analysis and modeling. By conducting data exploration, cleanup, and filling in missing values using machine learning, we will create a solid foundation for future research, enabling more informed decision-making and insight generation.
 
+Also included, is a Conformal prediction function `conformal_prediction`, to score the accuracy of the top ML model.
+
 ---
 
 ### Data Files
