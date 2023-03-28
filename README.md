@@ -6,7 +6,7 @@
 
 # Executive summary
 
-Real-estate-data-preprocessing is a data preprocessing and analysis project aimed at preparing and understanding real estate data for further usage, such as predictive modeling and decision-making. The project focuses on cleaning, transforming, and analyzing the dataset to derive meaningful insights.
+Real-estate Data Analysis is a data preprocessing and analysis project aimed at preparing and understanding real estate data for further usage, such as predictive modeling and decision-making. The project focuses on cleaning, transforming, and analyzing the dataset to derive meaningful insights.
 
 **Key Features**
 
