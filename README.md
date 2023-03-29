@@ -49,6 +49,10 @@ This real estate data preprocessing project aims to develop a clean, reliable, a
 
 Also included, is a WIP section for Conformal prediction. A function `conformal_prediction`, is initiated to score the accuracy of the top ML model.
 
+**Requirements**
+- Download [python](https://www.python.org/downloads/)
+- Download [JupyterLab](https://jupyter.org/install)
+
 ---
 
 ### Data Files
