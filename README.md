@@ -376,7 +376,7 @@ display(nan_counts)
 ![Fill missing city](Images/output/output_fill_city.png)
 
 
-#### Fill missing `house_size` using `zip_code` & `price` as features.
+#### Fill missing `house_size` using `zip_code` & `price` as features
 
 ```python
 from sklearn.linear_model import LinearRegression
@@ -412,7 +412,7 @@ display(nan_counts)
 
 
 
-#### Fill missing `acre_lot` using `zip_code`, `price` & `house_size` as features.
+#### Fill missing `acre_lot` using `zip_code`, `price` & `house_size` as features
 
 ```python
 # Split the data into two sets: one with complete data for house_size and another with missing values
@@ -447,7 +447,7 @@ display(nan_counts)
 
 
 
-#### Fill missing `bed` using `zip_code`, `price`, `house_size` & `acre_lot` as features.
+#### Fill missing `bed` using `zip_code`, `price`, `house_size` & `acre_lot` as features
 
 ```python
 # Split the data into two sets: one with complete data for house_size and another with missing values
@@ -481,7 +481,7 @@ display(nan_counts)
 
 
 
-#### Fill missing `bath` using `zip_code`, `price`, `house_size`, `acre_lot` & `bed` as features.
+#### Fill missing `bath` using `zip_code`, `price`, `house_size`, `acre_lot` & `bed` as features
 
 ```python
 # Split the data into two sets: one with complete data for house_size and another with missing values
