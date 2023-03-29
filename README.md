@@ -52,7 +52,10 @@ Also included, is a WIP section for Conformal prediction. A function `conformal_
 **Requirements**
 - Download [python](https://www.python.org/downloads/)
 - Download [JupyterLab](https://jupyter.org/install)
-- Open JupyterLab in Terminal - ```python jupyter lab --ContentsManager.allow_hidden=True```
+- Open JupyterLab in Terminal:
+```python 
+jupyter lab --ContentsManager.allow_hidden=True
+```
 
 ---
 
